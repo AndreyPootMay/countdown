@@ -16,13 +16,15 @@ var sec;
  * @return {[type]}
  */
 $(function() {
-   // Calcular hasta la fecha dada
-   timeToLaunch();
+  // Calcular hasta la fecha dada
+  timeToLaunch();
+
   // Transición hasta el 0 
   numberTransition('#days .number', days, 1000, 'easeOutQuad');
   numberTransition('#hours .number', hrs, 1000, 'easeOutQuad');
   numberTransition('#minutes .number', min, 1000, 'easeOutQuad');
   numberTransition('#seconds .number', sec, 1000, 'easeOutQuad');
+  
   // Cuenta regresiva
   setTimeout(countDownTimer,1001);
 });
@@ -32,24 +34,24 @@ $(function() {
  * @return {[type]} [description]
  */
 function timeToLaunch(){
-    // Fecha actual
-    var currentDate = new Date();
+  // Fecha actual
+  var currentDate = new Date();
 
-    // Encuentra la diferencia entre ambas fechas
-    var diff = (currentDate - targetDate)/1000;
-    var diff = Math.abs(Math.floor(diff));  
+  // Encuentra la diferencia entre ambas fechas
+  var diff = (currentDate - targetDate)/1000;
+  var diff = Math.abs(Math.floor(diff));  
 
-    // Encuentra el número de días
-    days = Math.floor(diff/(24*60*60));
-    sec = diff - days * 24*60*60;
+  // Encuentra el número de días
+  days = Math.floor(diff/(24*60*60));
+  sec = diff - days * 24*60*60;
 
-    // Encuentra el número de horas
-    hrs = Math.floor(sec/(60*60));
-    sec = sec - hrs * 60*60;
+  // Encuentra el número de horas
+  hrs = Math.floor(sec/(60*60));
+  sec = sec - hrs * 60*60;
 
-    // Encuentra el número de minutos y segundos
-    min = Math.floor(sec/(60));
-    sec = sec - min * 60;
+  // Encuentra el número de minutos y segundos
+  min = Math.floor(sec/(60));
+  sec = sec - min * 60;
 }
 
 /**
@@ -58,17 +60,17 @@ function timeToLaunch(){
  */
 function countDownTimer(){ 
     
-    // Añade el tiempo en la función anterior
-    timeToLaunch();
+  // Añade el tiempo en la función anterior
+  timeToLaunch();
     
-    // Añadiendo a cada ID con la clase "number"
-    $( "#days .number" ).text(days);
-    $( "#hours .number" ).text(hrs);
-    $( "#minutes .number" ).text(min);
-    $( "#seconds .number" ).text(sec);
+  // Añadiendo a cada ID con la clase "number"
+  $( "#days .number" ).text(days);
+  $( "#hours .number" ).text(hrs);
+  $( "#minutes .number" ).text(min);
+  $( "#seconds .number" ).text(sec);
     
-    // Repite el mismo proceso cada segundo
-    setTimeout(countDownTimer,1000);
+  // Repite el mismo proceso cada segundo
+  setTimeout(countDownTimer,1000);
 }
 
 /**
