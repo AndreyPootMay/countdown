@@ -2,7 +2,7 @@
  * Variables globales
  * -------------------------- */
 // La fecha por llegar
-var targetDate = new Date("2019/04/26 06:00:00");   
+var targetDate = new Date("2019/04/24 00:00:00");   
 
 // Variables para la fecha formato UNIX
 var days;
